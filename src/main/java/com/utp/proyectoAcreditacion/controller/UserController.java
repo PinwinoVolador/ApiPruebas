@@ -1,0 +1,52 @@
+package com.utp.proyectoAcreditacion.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.utp.proyectoAcreditacion.entities.Usuario;
+import com.utp.proyectoAcreditacion.services.UsuarioService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController
+@RequestMapping("api/usuarios")
+public class UserController {
+	
+	@Autowired
+	UsuarioService usuariosService;
+	
+	@GetMapping
+	public List<Usuario> listarUsuarios() {
+		return usuariosService.getUsuarios();
+	}
+	
+	@GetMapping("/{id}")
+	public Optional<Usuario> buscarPorId(@PathVariable Integer id) {
+		return usuariosService.findUserById(id);
+	}
+	
+	@PostMapping("create")
+	public Usuario crear(@RequestBody Usuario usuario) {
+		return usuariosService.createUsuario(usuario);
+	}
+	
+	@PostMapping("update/{id}")
+	public Usuario actualizar(@RequestBody Usuario usuario, @PathVariable Integer id) {
+		usuario.setCodigoUsuario(id);
+		return usuariosService.updateUsuario(usuario);
+	}
+	
+	@DeleteMapping("delete/{id}")
+	public void eliminar(@PathVariable Integer id) {
+		usuariosService.deleteUsuario(id);
+	}
+}
