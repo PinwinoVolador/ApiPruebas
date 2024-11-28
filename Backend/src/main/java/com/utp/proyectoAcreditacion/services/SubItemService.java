@@ -36,7 +36,7 @@ public class SubItemService {
 	}
 	
 	public List<SubItem> findByCodigoItem(Integer id) {
-		return subItemRepository.findByCodigoItem(id);
+		return getSubItems().stream().filter( s -> s.getItem().getCodigoItem()==id).toList();
 	}
 	
 	public SubItem cambiarEstado(Integer id) {

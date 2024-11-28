@@ -10,5 +10,4 @@ import com.utp.proyectoAcreditacion.entities.MicroAuditoria;
 @Repository
 public interface MicroAuditoriaRepository extends JpaRepository<MicroAuditoria, Integer>{
 	
-	List<MicroAuditoria> findByCodigoAuditoria (Integer codigoAuditoria);
 }

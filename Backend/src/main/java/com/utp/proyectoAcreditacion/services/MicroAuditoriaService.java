@@ -36,7 +36,7 @@ public class MicroAuditoriaService {
 	}
 	
 	public List<MicroAuditoria> findMicroAuditoriaByCodigoAuditoria(Integer id) {
-		return microAuditoriaRepository.findByCodigoAuditoria(id);
+		return getMicroAuditorias().stream().filter( m -> m.getAuditoria().getCodigoAuditoria()==id).toList();
 	}
 	
 }

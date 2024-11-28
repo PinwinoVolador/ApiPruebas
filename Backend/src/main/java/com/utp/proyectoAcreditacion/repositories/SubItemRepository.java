@@ -10,6 +10,4 @@ import com.utp.proyectoAcreditacion.entities.SubItem;
 @Repository
 public interface SubItemRepository extends JpaRepository<SubItem,Integer>{
 	
-	List<SubItem> findByCodigoItem (Integer codigoItem);
-	
 }

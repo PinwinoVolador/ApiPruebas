@@ -36,7 +36,7 @@ public class SubItem {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "codigo_item")
-	private Item codigoItem;
+	private Item item;
 	
 	@Column(name = "estado_uso")
 	private boolean estadoUso;
