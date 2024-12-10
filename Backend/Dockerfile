@@ -7,7 +7,7 @@ WORKDIR /app
 # Copiar los archivos de configuración de Maven, el código fuente y descargar las dependencias
 COPY pom.xml ./
 RUN mvn dependency:go-offline -B
-COPY src ./src
+COPY src ./Backend/src
 
 # Construir la aplicación
 RUN mvn clean package -DskipTests
