@@ -36,7 +36,7 @@ public class ProcesosService {
 	}
 	
 	public List<Procesos> findByCodigoEntidad(Integer id) {
-		return getProcesos().stream().filter(p -> p.getCodigoEntidad() == id).toList();
+		return getProcesos().stream().filter(p -> p.getEntidad().getCodigoEntidad() == id).toList();
 	}
 	
 }

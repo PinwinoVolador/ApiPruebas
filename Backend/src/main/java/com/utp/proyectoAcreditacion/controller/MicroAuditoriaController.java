@@ -54,4 +54,14 @@ public class MicroAuditoriaController {
 		return microAuditoriaService.findMicroAuditoriaByCodigoAuditoria(id);
 	}
 	
+	@GetMapping("/auditor/{id}")
+	public List<MicroAuditoria> getMicroByCodigoAuditor(@PathVariable Integer id) {
+		return microAuditoriaService.findMicroAuditoriaByCodigoAuditor(id);
+	}
+	
+	@GetMapping("/auditor/{id}/estado=2")
+	public List<MicroAuditoria> getMicroEnProcesoById(@PathVariable Integer id) {
+		return microAuditoriaService.findMicroAuditoriaEnProcesoByCodigoAuditor(id);
+	}
+	
 }
